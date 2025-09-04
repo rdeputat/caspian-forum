@@ -127,6 +127,236 @@
             transform: translateY(0);
         }
         
+        /* Directors Section Styles */
+        .director-card {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .director-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 107, 153, 0.15);
+        }
+        
+        .director-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+        }
+        
+        .director-image {
+            transition: transform 0.5s ease;
+        }
+        
+        .director-card:hover .director-image {
+            transform: scale(1.05);
+        }
+        
+        .director-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(to top, rgba(0, 107, 153, 0.8) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .director-card:hover .director-overlay {
+            opacity: 1;
+        }
+        
+        .director-social-links {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            opacity: 0;
+            transition: opacity 0.3s ease 0.1s;
+        }
+        
+        .director-card:hover .director-social-links {
+            opacity: 1;
+        }
+        
+        .director-social-links a {
+            width: 35px;
+            height: 35px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #006b99;
+            transition: all 0.3s ease;
+        }
+        
+        .director-social-links a:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+        
+        /* Gradient text for director titles */
+        .director-title {
+            background: linear-gradient(135deg, #006b99 0%, #005577 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Responsive adjustments for Directors */
+        @media (max-width: 1024px) {
+            .director-card:hover {
+                transform: translateY(-5px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .director-card:hover {
+                transform: none;
+            }
+            
+            .director-overlay,
+            .director-social-links {
+                opacity: 1;
+            }
+        }
+        
+        /* Projects Section Styles */
+        .project-card {
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 107, 153, 0.12);
+        }
+        
+        .project-type-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .project-countries {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        
+        .country-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 10px;
+            background: rgba(0, 107, 153, 0.08);
+            border-radius: 12px;
+            font-size: 12px;
+            color: #006b99;
+            font-weight: 500;
+        }
+        
+        .project-header {
+            background: linear-gradient(135deg, #006b99 0%, #005577 100%);
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
+            color: white;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .project-content {
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-arrow {
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover .project-arrow {
+            transform: translateX(5px);
+        }
+        
+        /* All Projects Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            backdrop-filter: blur(4px);
+        }
+        
+        .modal-overlay.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            max-width: 1200px;
+            max-height: 85vh;
+            width: 100%;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .modal-close {
+            position: sticky;
+            top: 20px;
+            right: 20px;
+            float: right;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border: 2px solid #e5e5e5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .modal-close:hover {
+            background: #f5f5f5;
+            transform: rotate(90deg);
+        }
+        
         @media (max-width: 768px) {
             .center-overlay {
                 transform: translateY(0);
@@ -136,6 +366,14 @@
             .center-link {
                 opacity: 0.9;
                 transform: translateY(0);
+            }
+            
+            .project-header {
+                min-height: 100px;
+            }
+            
+            .modal-content {
+                max-height: 90vh;
             }
         }
     </style>
@@ -175,8 +413,10 @@
                 <div class="hidden md:flex items-center gap-8">
                     <a href="#initiatives" class="nav-link text-gray-800 no-underline font-medium text-sm transition-colors hover:text-primary relative">Initiatives</a>
                     <a href="#insights" class="nav-link text-gray-800 no-underline font-medium text-sm transition-colors hover:text-primary relative">Insights</a>
+                    <a href="#projects" class="nav-link text-gray-800 no-underline font-medium text-sm transition-colors hover:text-primary relative">Projects</a>
                     <a href="#events" class="nav-link text-gray-800 no-underline font-medium text-sm transition-colors hover:text-primary relative">Events</a>
                     <a href="#community" class="nav-link text-gray-800 no-underline font-medium text-sm transition-colors hover:text-primary relative">Community</a>
+                    <a href="#directors" class="nav-link text-gray-800 no-underline font-medium text-sm transition-colors hover:text-primary relative">Directors</a>
                     <a href="#impact" class="nav-link text-gray-800 no-underline font-medium text-sm transition-colors hover:text-primary relative">Impact</a>
                     <a href="#about" class="nav-link text-gray-800 no-underline font-medium text-sm transition-colors hover:text-primary relative">About</a>
                 </div>
@@ -296,8 +536,8 @@
             <div class="centers-scroll-track flex gap-5 overflow-x-auto scroll-smooth px-5 pb-5">
                 <!-- Center Card 1 -->
                 <div class="center-card flex-none w-[380px] h-[480px] relative rounded-lg overflow-hidden cursor-pointer transition-transform hover:scale-[1.02]">
-                    <div class="center-image w-full h-full bg-cover bg-center relative transition-all duration-500" style="background-image: linear-gradient(to bottom, rgba(0,107,153,0.3), rgba(0,107,153,0.7)), url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 400 300&quot;><rect fill=&quot;%23e0f2fe&quot; width=&quot;400&quot; height=&quot;300&quot;/><rect fill=&quot;%23006b99&quot; opacity=&quot;0.1&quot; x=&quot;50&quot; y=&quot;50&quot; width=&quot;100&quot; height=&quot;200&quot;/><rect fill=&quot;%23006b99&quot; opacity=&quot;0.15&quot; x=&quot;170&quot; y=&quot;80&quot; width=&quot;80&quot; height=&quot;170&quot;/><rect fill=&quot;%23006b99&quot; opacity=&quot;0.1&quot; x=&quot;270&quot; y=&quot;100&quot; width=&quot;80&quot; height=&quot;150&quot;/></svg>');">
-                        <div class="center-overlay absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/90 to-transparent text-white transition-transform duration-300">
+                    <div class="center-image w-full h-full bg-cover bg-center relative transition-all duration-500" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=2070&auto=format&fit=crop');">
+                        <div class="center-overlay absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white transition-transform duration-300">
                             <div class="text-sm font-light opacity-70 mb-2">01</div>
                             <h3 class="text-2xl font-medium mb-3 leading-tight">Center for Energy Transition</h3>
                             <p class="center-description text-sm leading-relaxed mb-4">Accelerating sustainable energy cooperation and green hydrogen development</p>
@@ -308,8 +548,8 @@
 
                 <!-- Center Card 2 -->
                 <div class="center-card flex-none w-[380px] h-[480px] relative rounded-lg overflow-hidden cursor-pointer transition-transform hover:scale-[1.02]">
-                    <div class="center-image w-full h-full bg-cover bg-center relative transition-all duration-500" style="background-image: linear-gradient(to bottom, rgba(0,107,153,0.3), rgba(0,107,153,0.7)), url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 400 300&quot;><rect fill=&quot;%23fef3c7&quot; width=&quot;400&quot; height=&quot;300&quot;/><circle fill=&quot;%23006b99&quot; opacity=&quot;0.1&quot; cx=&quot;200&quot; cy=&quot;150&quot; r=&quot;80&quot;/><circle fill=&quot;%23006b99&quot; opacity=&quot;0.15&quot; cx=&quot;100&quot; cy=&quot;100&quot; r=&quot;50&quot;/><circle fill=&quot;%23006b99&quot; opacity=&quot;0.1&quot; cx=&quot;300&quot; cy=&quot;200&quot; r=&quot;60&quot;/></svg>');">
-                        <div class="center-overlay absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/90 to-transparent text-white transition-transform duration-300">
+                    <div class="center-image w-full h-full bg-cover bg-center relative transition-all duration-500" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');">
+                        <div class="center-overlay absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white transition-transform duration-300">
                             <div class="text-sm font-light opacity-70 mb-2">02</div>
                             <h3 class="text-2xl font-medium mb-3 leading-tight">Center for Trade & Investment</h3>
                             <p class="center-description text-sm leading-relaxed mb-4">Facilitating cross-border trade and mobilizing sustainable investment</p>
@@ -320,8 +560,8 @@
 
                 <!-- Center Card 3 -->
                 <div class="center-card flex-none w-[380px] h-[480px] relative rounded-lg overflow-hidden cursor-pointer transition-transform hover:scale-[1.02]">
-                    <div class="center-image w-full h-full bg-cover bg-center relative transition-all duration-500" style="background-image: linear-gradient(to bottom, rgba(0,107,153,0.3), rgba(0,107,153,0.7)), url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 400 300&quot;><rect fill=&quot;%23e0e7ff&quot; width=&quot;400&quot; height=&quot;300&quot;/><polygon fill=&quot;%23006b99&quot; opacity=&quot;0.1&quot; points=&quot;200,50 350,250 50,250&quot;/><polygon fill=&quot;%23006b99&quot; opacity=&quot;0.15&quot; points=&quot;100,100 200,200 50,200&quot;/></svg>');">
-                        <div class="center-overlay absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/90 to-transparent text-white transition-transform duration-300">
+                    <div class="center-image w-full h-full bg-cover bg-center relative transition-all duration-500" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2070&auto=format&fit=crop');">
+                        <div class="center-overlay absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white transition-transform duration-300">
                             <div class="text-sm font-light opacity-70 mb-2">03</div>
                             <h3 class="text-2xl font-medium mb-3 leading-tight">Center for Digital Economy</h3>
                             <p class="center-description text-sm leading-relaxed mb-4">Building digital infrastructure and regulatory frameworks</p>
@@ -332,8 +572,8 @@
 
                 <!-- Center Card 4 -->
                 <div class="center-card flex-none w-[380px] h-[480px] relative rounded-lg overflow-hidden cursor-pointer transition-transform hover:scale-[1.02]">
-                    <div class="center-image w-full h-full bg-cover bg-center relative transition-all duration-500" style="background-image: linear-gradient(to bottom, rgba(0,107,153,0.3), rgba(0,107,153,0.7)), url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 400 300&quot;><rect fill=&quot;%23d1fae5&quot; width=&quot;400&quot; height=&quot;300&quot;/><path fill=&quot;%23006b99&quot; opacity=&quot;0.1&quot; d=&quot;M50,250 Q200,50 350,250&quot;/><circle fill=&quot;%23006b99&quot; opacity=&quot;0.15&quot; cx=&quot;200&quot; cy=&quot;150&quot; r=&quot;40&quot;/></svg>');">
-                        <div class="center-overlay absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/90 to-transparent text-white transition-transform duration-300">
+                    <div class="center-image w-full h-full bg-cover bg-center relative transition-all duration-500" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?q=80&w=2070&auto=format&fit=crop');">
+                        <div class="center-overlay absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white transition-transform duration-300">
                             <div class="text-sm font-light opacity-70 mb-2">04</div>
                             <h3 class="text-2xl font-medium mb-3 leading-tight">Center for Climate Action</h3>
                             <p class="center-description text-sm leading-relaxed mb-4">Driving climate resilience and sustainable development initiatives</p>
@@ -344,8 +584,8 @@
 
                 <!-- Center Card 5 -->
                 <div class="center-card flex-none w-[380px] h-[480px] relative rounded-lg overflow-hidden cursor-pointer transition-transform hover:scale-[1.02]">
-                    <div class="center-image w-full h-full bg-cover bg-center relative transition-all duration-500" style="background-image: linear-gradient(to bottom, rgba(0,107,153,0.3), rgba(0,107,153,0.7)), url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 400 300&quot;><rect fill=&quot;%23fce7f3&quot; width=&quot;400&quot; height=&quot;300&quot;/><rect fill=&quot;%23006b99&quot; opacity=&quot;0.1&quot; x=&quot;150&quot; y=&quot;50&quot; width=&quot;100&quot; height=&quot;200&quot; transform=&quot;rotate(15 200 150)&quot;/><rect fill=&quot;%23006b99&quot; opacity=&quot;0.15&quot; x=&quot;100&quot; y=&quot;100&quot; width=&quot;200&quot; height=&quot;100&quot; transform=&quot;rotate(-10 200 150)&quot;/></svg>');">
-                        <div class="center-overlay absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/90 to-transparent text-white transition-transform duration-300">
+                    <div class="center-image w-full h-full bg-cover bg-center relative transition-all duration-500" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1518364538800-6bae3c2ea0f2?q=80&w=2070&auto=format&fit=crop');">
+                        <div class="center-overlay absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white transition-transform duration-300">
                             <div class="text-sm font-light opacity-70 mb-2">05</div>
                             <h3 class="text-2xl font-medium mb-3 leading-tight">Center for Innovation</h3>
                             <p class="center-description text-sm leading-relaxed mb-4">Fostering entrepreneurship and technological advancement</p>
@@ -356,8 +596,8 @@
 
                 <!-- Center Card 6 -->
                 <div class="center-card flex-none w-[380px] h-[480px] relative rounded-lg overflow-hidden cursor-pointer transition-transform hover:scale-[1.02]">
-                    <div class="center-image w-full h-full bg-cover bg-center relative transition-all duration-500" style="background-image: linear-gradient(to bottom, rgba(0,107,153,0.3), rgba(0,107,153,0.7)), url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 400 300&quot;><rect fill=&quot;%23f3e8ff&quot; width=&quot;400&quot; height=&quot;300&quot;/><ellipse fill=&quot;%23006b99&quot; opacity=&quot;0.1&quot; cx=&quot;200&quot; cy=&quot;150&quot; rx=&quot;150&quot; ry=&quot;80&quot;/><ellipse fill=&quot;%23006b99&quot; opacity=&quot;0.15&quot; cx=&quot;200&quot; cy=&quot;150&quot; rx=&quot;80&quot; ry=&quot;40&quot;/></svg>');">
-                        <div class="center-overlay absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/90 to-transparent text-white transition-transform duration-300">
+                    <div class="center-image w-full h-full bg-cover bg-center relative transition-all duration-500" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1555881400-74d7acaacd8b?q=80&w=2070&auto=format&fit=crop');">
+                        <div class="center-overlay absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white transition-transform duration-300">
                             <div class="text-sm font-light opacity-70 mb-2">06</div>
                             <h3 class="text-2xl font-medium mb-3 leading-tight">Center for Governance</h3>
                             <p class="center-description text-sm leading-relaxed mb-4">Strengthening institutions and regulatory frameworks</p>
@@ -368,8 +608,8 @@
 
                 <!-- Center Card 7 -->
                 <div class="center-card flex-none w-[380px] h-[480px] relative rounded-lg overflow-hidden cursor-pointer transition-transform hover:scale-[1.02]">
-                    <div class="center-image w-full h-full bg-cover bg-center relative transition-all duration-500" style="background-image: linear-gradient(to bottom, rgba(0,107,153,0.3), rgba(0,107,153,0.7)), url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 400 300&quot;><rect fill=&quot;%23fff7ed&quot; width=&quot;400&quot; height=&quot;300&quot;/><path fill=&quot;%23006b99&quot; opacity=&quot;0.1&quot; d=&quot;M0,150 L100,50 L200,150 L300,50 L400,150 L400,300 L0,300 Z&quot;/></svg>');">
-                        <div class="center-overlay absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/90 to-transparent text-white transition-transform duration-300">
+                    <div class="center-image w-full h-full bg-cover bg-center relative transition-all duration-500" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1607013407627-6ee814329547?q=80&w=2070&auto=format&fit=crop');">
+                        <div class="center-overlay absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white transition-transform duration-300">
                             <div class="text-sm font-light opacity-70 mb-2">07</div>
                             <h3 class="text-2xl font-medium mb-3 leading-tight">Center for Skills & Education</h3>
                             <p class="center-description text-sm leading-relaxed mb-4">Building human capital and leadership capabilities</p>
@@ -380,8 +620,8 @@
 
                 <!-- Center Card 8 -->
                 <div class="center-card flex-none w-[380px] h-[480px] relative rounded-lg overflow-hidden cursor-pointer transition-transform hover:scale-[1.02]">
-                    <div class="center-image w-full h-full bg-cover bg-center relative transition-all duration-500" style="background-image: linear-gradient(to bottom, rgba(0,107,153,0.3), rgba(0,107,153,0.7)), url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 400 300&quot;><rect fill=&quot;%23ecfdf5&quot; width=&quot;400&quot; height=&quot;300&quot;/><circle fill=&quot;%23006b99&quot; opacity=&quot;0.1&quot; cx=&quot;100&quot; cy=&quot;150&quot; r=&quot;60&quot;/><circle fill=&quot;%23006b99&quot; opacity=&quot;0.1&quot; cx=&quot;200&quot; cy=&quot;150&quot; r=&quot;60&quot;/><circle fill=&quot;%23006b99&quot; opacity=&quot;0.1&quot; cx=&quot;300&quot; cy=&quot;150&quot; r=&quot;60&quot;/></svg>');">
-                        <div class="center-overlay absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/90 to-transparent text-white transition-transform duration-300">
+                    <div class="center-image w-full h-full bg-cover bg-center relative transition-all duration-500" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1449034446853-66c86144b0ad?q=80&w=2070&auto=format&fit=crop');">
+                        <div class="center-overlay absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white transition-transform duration-300">
                             <div class="text-sm font-light opacity-70 mb-2">08</div>
                             <h3 class="text-2xl font-medium mb-3 leading-tight">Center for Infrastructure</h3>
                             <p class="center-description text-sm leading-relaxed mb-4">Developing sustainable transport and urban systems</p>
@@ -558,6 +798,294 @@
         </div>
     </section>
 
+    <!-- Strategic Projects Section -->
+    <section id="projects" class="py-16 md:py-20 lg:py-24 bg-gray-50 relative overflow-hidden">
+        <!-- Background pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="grid-pattern h-full"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <!-- Section Header -->
+            <div class="mb-12">
+                <h2 class="text-4xl md:text-5xl font-light tracking-tight leading-tight text-gray-900 mb-4">Strategic Projects</h2>
+                <p class="text-xl font-normal text-gray-600 leading-relaxed max-w-3xl">
+                    High-impact investment opportunities driving economic integration across the Caspian-Europe corridor
+                </p>
+            </div>
+
+            <!-- Projects Grid - Show 4 Recent -->
+            <div class="grid md:grid-cols-2 gap-6 mb-12">
+                <!-- Project 1: Automotive & Pharma Know-How Transfer -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="project-header" style="background: linear-gradient(135deg, #006b99 0%, #0084bb 50%, #005577 100%); position: relative; overflow: hidden;">
+                        <div style="position: relative; z-index: 1;">
+                            <span class="project-type-badge bg-white/20 text-white backdrop-blur-sm">Industry Development</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mt-3" style="position: relative; z-index: 1;">Automotive & Pharma Know-How Transfer</h3>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-countries mb-4">
+                            <span class="country-tag">
+                                <i class="fas fa-map-marker-alt text-xs"></i>
+                                Germany
+                            </span>
+                            <span class="country-tag">
+                                <i class="fas fa-map-marker-alt text-xs"></i>
+                                Kazakhstan
+                            </span>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6 flex-1">
+                            Know-how transfer in auto & pharma production with German expertise and local support. Includes technology transfer, training programs, and government-backed investment opportunities.
+                        </p>
+                        <div class="mt-auto">
+                            <a href="#" class="inline-flex items-center gap-2 text-primary font-medium hover:underline transition-colors">
+                                <span>Learn more</span>
+                                <i class="fas fa-arrow-right text-sm project-arrow"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Caspian Construction Investment -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="project-header" style="background: linear-gradient(135deg, #005577 0%, #006b99 25%, #0084bb 75%, #006b99 100%); position: relative; overflow: hidden;">
+                        <div style="position: relative; z-index: 1;">
+                            <span class="project-type-badge bg-white/20 text-white backdrop-blur-sm">Construction Investment</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mt-3" style="position: relative; z-index: 1;">Caspian Construction Investment Program</h3>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-countries mb-4">
+                            <span class="country-tag">
+                                <i class="fas fa-map-marker-alt text-xs"></i>
+                                Caspian Region
+                            </span>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6 flex-1">
+                            €100M construction ventures with JV options and green technology integration. End-to-end participation from design to completion with focus on sustainable building solutions.
+                        </p>
+                        <div class="mt-auto">
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-light text-primary">€100M</span>
+                                <a href="#" class="inline-flex items-center gap-2 text-primary font-medium hover:underline transition-colors">
+                                    <span>Learn more</span>
+                                    <i class="fas fa-arrow-right text-sm project-arrow"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: German Investment Opportunities -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="project-header" style="background: linear-gradient(135deg, #0084bb 0%, #006b99 40%, #005577 100%); position: relative; overflow: hidden;">
+                        <div style="position: relative; z-index: 1;">
+                            <span class="project-type-badge bg-white/20 text-white backdrop-blur-sm">General Investment</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mt-3" style="position: relative; z-index: 1;">German Investment Opportunities</h3>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-countries mb-4">
+                            <span class="country-tag">
+                                <i class="fas fa-map-marker-alt text-xs"></i>
+                                Germany
+                            </span>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6 flex-1">
+                            Investments in real estate, production, and renewables starting from €500K. Focus on sustainable projects with strong ROI potential in established German markets.
+                        </p>
+                        <div class="mt-auto">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">Min: €500K</span>
+                                <a href="#" class="inline-flex items-center gap-2 text-primary font-medium hover:underline transition-colors">
+                                    <span>Learn more</span>
+                                    <i class="fas fa-arrow-right text-sm project-arrow"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: AFEZ Production Zone -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="project-header" style="background: linear-gradient(135deg, #006b99 0%, #005577 50%, #0084bb 100%); position: relative; overflow: hidden;">
+                        <div style="position: relative; z-index: 1;">
+                            <span class="project-type-badge bg-white/20 text-white backdrop-blur-sm">Production Zone</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mt-3" style="position: relative; z-index: 1;">AFEZ Production Zone Program</h3>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-countries mb-4">
+                            <span class="country-tag">
+                                <i class="fas fa-map-marker-alt text-xs"></i>
+                                Azerbaijan
+                            </span>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6 flex-1">
+                            Subsidized production zone with JV opportunities in Azerbaijan. Government support includes tax incentives, infrastructure access, and streamlined regulatory processes.
+                        </p>
+                        <div class="mt-auto">
+                            <a href="#" class="inline-flex items-center gap-2 text-primary font-medium hover:underline transition-colors">
+                                <span>Learn more</span>
+                                <i class="fas fa-arrow-right text-sm project-arrow"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Projects Button -->
+            <div class="text-center">
+                <button onclick="openProjectsModal()" class="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 font-medium transition-all hover:bg-primary-dark hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                    <span>View All Projects</span>
+                    <i class="fas fa-th text-sm"></i>
+                </button>
+            </div>
+
+            <!-- Statistics Bar -->
+            <div class="mt-16 p-6 bg-white rounded-lg shadow-sm border border-gray-200">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div>
+                        <div class="text-3xl font-light text-primary">15+</div>
+                        <div class="text-sm text-gray-600 mt-1">Active Projects</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-light text-primary">€2.5B</div>
+                        <div class="text-sm text-gray-600 mt-1">Total Investment</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-light text-primary">8</div>
+                        <div class="text-sm text-gray-600 mt-1">Countries</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-light text-primary">45</div>
+                        <div class="text-sm text-gray-600 mt-1">Partners</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Projects Modal -->
+    <div id="projectsModal" class="modal-overlay">
+        <div class="modal-content">
+            <button onclick="closeProjectsModal()" class="modal-close">
+                <i class="fas fa-times text-gray-600"></i>
+            </button>
+            
+            <div class="p-8 md:p-12">
+                <h2 class="text-3xl font-light text-gray-900 mb-2">All Strategic Projects</h2>
+                <p class="text-gray-600 mb-8">Explore our complete portfolio of investment opportunities</p>
+                
+                <!-- Filter Tags -->
+                <div class="flex flex-wrap gap-2 mb-8">
+                    <button class="px-4 py-2 bg-primary text-white rounded-full text-sm font-medium">All Projects</button>
+                    <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">Industry Development</button>
+                    <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">Construction</button>
+                    <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">Investment</button>
+                    <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors">Production</button>
+                </div>
+                
+                <!-- All Projects Grid -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Project 1 -->
+                    <div class="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-all">
+                        <div class="flex items-start justify-between mb-4">
+                            <h3 class="text-lg font-semibold text-gray-900">Automotive & Pharma Know-How Transfer</h3>
+                            <span class="text-xs font-semibold text-green-600 bg-green-100 px-2 py-1 rounded">Active</span>
+                        </div>
+                        <div class="flex gap-2 mb-3">
+                            <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">Germany</span>
+                            <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">Kazakhstan</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Know How Transfer from Germany, on the Production of the Automobile industry and Pharma production. Local partners' readiness on the investment and government support.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-500">Industry Development</span>
+                            <a href="#" class="text-primary text-sm font-medium hover:underline">Details →</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-all">
+                        <div class="flex items-start justify-between mb-4">
+                            <h3 class="text-lg font-semibold text-gray-900">Caspian Construction Investment Program</h3>
+                            <span class="text-xs font-semibold text-green-600 bg-green-100 px-2 py-1 rounded">Active</span>
+                        </div>
+                        <div class="flex gap-2 mb-3">
+                            <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">Caspian Region</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">€100M investment in construction sector with end-to-end participation, JV structures, and green technology integration.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-500">Construction Investment</span>
+                            <a href="#" class="text-primary text-sm font-medium hover:underline">Details →</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3 -->
+                    <div class="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-all">
+                        <div class="flex items-start justify-between mb-4">
+                            <h3 class="text-lg font-semibold text-gray-900">German Investment Opportunities</h3>
+                            <span class="text-xs font-semibold text-green-600 bg-green-100 px-2 py-1 rounded">Active</span>
+                        </div>
+                        <div class="flex gap-2 mb-3">
+                            <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">Germany</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Investment opportunities in real estate, production, and renewable energy sectors with minimum size €500K.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-500">General Investment</span>
+                            <a href="#" class="text-primary text-sm font-medium hover:underline">Details →</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 4 -->
+                    <div class="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-all">
+                        <div class="flex items-start justify-between mb-4">
+                            <h3 class="text-lg font-semibold text-gray-900">AFEZ Production Zone Program</h3>
+                            <span class="text-xs font-semibold text-green-600 bg-green-100 px-2 py-1 rounded">Active</span>
+                        </div>
+                        <div class="flex gap-2 mb-3">
+                            <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">Azerbaijan</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Production Zone with government subsidies and joint venture possibilities for project development.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-500">Production Zone</span>
+                            <a href="#" class="text-primary text-sm font-medium hover:underline">Details →</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 5 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-all">
+                        <div class="h-2 bg-gradient-to-r from-primary to-primary-dark"></div>
+                        <div class="p-6">
+                            <div class="flex items-start justify-between mb-4">
+                                <h3 class="text-lg font-semibold text-gray-900">German Small-Scale Equity Participation</h3>
+                                <span class="text-xs font-semibold text-green-600 bg-green-100 px-2 py-1 rounded">Active</span>
+                            </div>
+                            <div class="flex gap-2 mb-3">
+                                <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">Germany</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-4">Investment participation on small projects with equity up to €500K.</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs text-gray-500">Small-Scale Equity</span>
+                                <a href="#" class="text-primary text-sm font-medium hover:underline">Details →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact CTA -->
+                <div class="mt-12 p-6 bg-primary/5 rounded-lg text-center">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Have a Project Proposal?</h3>
+                    <p class="text-gray-600 mb-4">Connect with our investment team to explore partnership opportunities</p>
+                    <button class="bg-primary text-white px-6 py-3 font-medium hover:bg-primary-dark transition-colors">
+                        Submit Proposal
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Community Section -->
     <section id="community" class="py-24 bg-white gradient-mesh">
         <div class="max-w-7xl mx-auto px-4">
@@ -631,6 +1159,155 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Board of Directors Section -->
+    <section id="directors" class="py-16 md:py-20 lg:py-24 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden">
+        <!-- Decorative background elements -->
+        <div class="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-primary/3 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+        
+        <!-- Additional decorative elements -->
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-6xl">
+            <div class="w-full h-full opacity-5 dot-pattern"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-light tracking-tight leading-tight text-gray-900 mb-4">Board of Directors</h2>
+                <p class="text-xl font-normal text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                    Visionary leaders guiding our mission to foster sustainable economic cooperation across Eurasia
+                </p>
+                <div class="w-24 h-1 bg-primary mx-auto mt-6"></div>
+            </div>
+
+            <!-- Directors Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                <!-- Director 1: Ulf Schneider -->
+                <div class="director-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="director-image-wrapper aspect-square">
+                        <img src="img/Ulf-Schneider-Schneider-Group-2024-1000x1000.jpg" 
+                             alt="Ulf Schneider" 
+                             class="director-image w-full h-full object-cover">
+                        <div class="director-overlay"></div>
+                        <div class="director-social-links">
+                            <a href="#" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" aria-label="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-5 md:p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-1">Ulf Schneider</h3>
+                        <p class="director-title font-medium text-sm mb-3">Chairman of the Board</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Former CEO of Fresenius and Nestle Health Science, bringing decades of experience in international business and sustainable development.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Director 2: Darius Maleki -->
+                <div class="director-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="director-image-wrapper aspect-square">
+                        <img src="img/Darius Maleki.jpg" 
+                             alt="Darius Maleki" 
+                             class="director-image w-full h-full object-cover">
+                        <div class="director-overlay"></div>
+                        <div class="director-social-links">
+                            <a href="#" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" aria-label="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-5 md:p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-1">Darius Maleki</h3>
+                        <p class="director-title font-medium text-sm mb-3">Vice Chairman</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Leading energy sector expert with extensive experience in cross-border investment and strategic partnerships in the Caspian region.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Director 3: Sarah von Habsburg -->
+                <div class="director-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="director-image-wrapper aspect-square">
+                        <img src="img/79930495-9980-4a6c-98ab-3adef62364c8.JPEG" 
+                             alt="Sarah von Habsburg" 
+                             class="director-image w-full h-full object-cover">
+                        <div class="director-overlay"></div>
+                        <div class="director-social-links">
+                            <a href="#" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" aria-label="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-5 md:p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-1">Sarah von Habsburg</h3>
+                        <p class="director-title font-medium text-sm mb-3">Executive Director</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Former World Bank advisor specializing in sustainable finance and climate resilience initiatives across emerging markets.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Director 4: Alexander Novak -->
+                <div class="director-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="director-image-wrapper aspect-square">
+                        <img src="img/maleki-4c-1-nqbnnkf5dbh1wxkaf2frnqzn1mph5o2r9s0zgscc2g.jpg" 
+                             alt="Alexander Novak" 
+                             class="director-image w-full h-full object-cover">
+                        <div class="director-overlay"></div>
+                        <div class="director-social-links">
+                            <a href="#" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" aria-label="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-5 md:p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-1">Alexander Novak</h3>
+                        <p class="director-title font-medium text-sm mb-3">Director of Innovation</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Technology entrepreneur and digital transformation expert, driving innovation in trade facilitation and digital economy initiatives.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leadership Message -->
+            <div class="mt-12 lg:mt-16 bg-white p-6 md:p-8 rounded-lg shadow-lg border border-gray-100 transition-all hover:shadow-xl">
+                <div class="max-w-4xl mx-auto text-center">
+                    <div class="mb-6">
+                        <i class="fas fa-quote-left text-3xl text-primary/20"></i>
+                    </div>
+                    <blockquote class="text-lg italic text-gray-700 leading-relaxed mb-6">
+                        "Our board brings together exceptional leaders from diverse sectors and regions, united by a shared vision of sustainable prosperity through economic cooperation. Together, we're building bridges that connect markets, foster innovation, and create lasting value for all stakeholders."
+                    </blockquote>
+                    <div class="text-sm text-gray-600">
+                        <span class="font-semibold">Ulf Schneider</span>, Chairman of the Board
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center gap-2 text-primary font-medium hover:underline transition-colors">
+                    <span>Learn more about our governance</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -925,6 +1602,33 @@
                 scrollTrack.scrollLeft = scrollLeft - walk;
             });
         }
+        
+        // Projects Modal Functions
+        function openProjectsModal() {
+            const modal = document.getElementById('projectsModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeProjectsModal() {
+            const modal = document.getElementById('projectsModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeProjectsModal();
+            }
+        });
+        
+        // Close modal on background click
+        document.getElementById('projectsModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeProjectsModal();
+            }
+        });
     </script>
 </body>
 </html>
